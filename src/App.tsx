@@ -37,7 +37,7 @@ function App() {
       {address ? (
         <>
           <div
-            className="absolute top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center rounded-full cursor-pointer transition hover:scale-110 hover:opacity-50 active:opacity-80"
+            className="absolute top-1/2 left-1/2 z-40 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center rounded-full cursor-pointer transition hover:scale-110 hover:opacity-50 active:opacity-80"
             onClick={() => setTon(ton + 1)}
           >
             <img src="/TMA-Test/image/toncoin.svg" alt="toncoin" className="w-40 h-40" />{" "}
@@ -88,7 +88,7 @@ function App() {
                 <div
                   className={`p-3 rounded-lg bg-slate-400 absolute -top-[150px] right-0 flex flex-col transition-all ease-out duration-300 ${
                     isModalOpen
-                      ? "opacity-100 translate-y-0"
+                      ? "opacity-100 translate-y-0 z-50"
                       : "opacity-0 -translate-y-10"
                   } group-hover:block`}
                 >
