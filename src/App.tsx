@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { TonConnectButton, useTonAddress } from "@tonconnect/ui-react";
 import { ToastContainer, toast } from "react-toastify";
@@ -14,6 +14,7 @@ function App() {
     joinGroup: false,
     provideEth: false,
   });
+  const [isAdded, setIsAdded] = useState(false);
 
   const handleFollowOnX = async () => {
     if (!taskCompletion.followOnX) {
@@ -48,6 +49,19 @@ function App() {
     setIsModalOpen(false);
   };
 
+  useEffect(() => {
+    if (isAdded) {
+      setTimeout(() => {
+        setIsAdded(false);
+      }, 200);
+    }
+  }, [isAdded]);
+
+  const handlePlus = () => {
+    setIsAdded(true);
+    setTon(ton + 1);
+  };
+
   return (
     <>
       <ToastContainer />
@@ -58,9 +72,10 @@ function App() {
       </div>
       {address ? (
         <>
+          { isAdded && <img src="/TMA-Test/image/plus.png" alt="plus" className={`animate-fadeInMoveUp absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 max-sm:w-20 max-sm:h-20 transition-opacity duration-500 ease-in-out z-20 ${isAdded? '' : 'hidden'}`} />}
           <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center rounded-full cursor-pointer transition hover:scale-110 hover:opacity-50 active:opacity-80"
-            onClick={() => setTon(ton + 1)}
+            onClick={handlePlus}
           >
             <img src="/TMA-Test/image/toncoin.svg" alt="toncoin" className="w-40 h-40 max-sm:w-20 max-sm:h-20" />{" "}
           </div>
