@@ -37,7 +37,7 @@ function App() {
       {address ? (
         <>
           <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center rounded-full cursor-pointer transition hover:scale-110 hover:opacity-50 active:opacity-80"
+            className="absolute top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center rounded-full cursor-pointer transition hover:scale-110 hover:opacity-50 active:opacity-80"
             onClick={() => setTon(ton + 1)}
           >
             <img src="/TMA-Test/image/toncoin.svg" alt="toncoin" className="w-40 h-40" />{" "}
@@ -102,6 +102,7 @@ function App() {
                       handleProvideEth();
                     }} // Toggle modal open/close
                     className="flex flex-col justify-center items-center"
+                    disabled={!ethAddress}
                   >
                     Confirm
                   </button>
