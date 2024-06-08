@@ -111,7 +111,7 @@ function App() {
                   className={`p-3 rounded-lg bg-slate-400 absolute -top-[100px] right-0 flex flex-col transition-all ease-out duration-300 ${
                     isModalOpen
                       ? "opacity-100 translate-y-0 z-10"
-                      : "opacity-0 -translate-y-10 -z-10"
+                      : "opacity-0 translate-y-10 -z-10"
                   } group-hover:block`}
                 >
                   <input
