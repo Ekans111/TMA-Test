@@ -9,20 +9,42 @@ function App() {
   const [ton, setTon] = useState(0);
   const [ethAddress, setEthAddress] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isExtraWorkCompleted, setIsExtraWorkCompleted] = useState([
-    false,
-    false,
-    false,
-  ]);
+  const [taskCompletion, setTaskCompletion] = useState({
+    followOnX: false,
+    joinGroup: false,
+    provideEth: false,
+  });
+
+  const handleFollowOnX = async () => {
+    if (!taskCompletion.followOnX) {
+      setTon(ton + 10);
+      toast("You gained extra token!", { type: "success" });
+    } else {
+      toast("You are already following on X!", { type: "info" });
+    }
+    setTaskCompletion({...taskCompletion, followOnX: true });
+    setIsModalOpen(false);
+  };
+
+  const handleJoinGroup = async () => {
+    if (!taskCompletion.joinGroup) {
+      setTon(ton + 10);
+      toast("You gained extra token!", { type: "success" });
+    } else {
+      toast("You are already joining the group!", { type: "info" });
+    }
+    setTaskCompletion({...taskCompletion, joinGroup: true });
+    setIsModalOpen(false);
+  };
 
   const handleProvideEth = async () => {
-    if (!isExtraWorkCompleted[2]) {
+    if (!taskCompletion.provideEth) {
       setTon(ton + 10)
       toast("You gained extra token!", { type: "success" });
     } else {
       toast("Your ETH address is updated!", { type: "info" });
     }
-    setIsExtraWorkCompleted([false, false, true]);
+    setTaskCompletion({...taskCompletion, provideEth: true });
     setIsModalOpen(false);
   };
 
@@ -49,7 +71,7 @@ function App() {
             <ul className="flex gap-4 relative">
               <li>
                 <button
-                  onClick={() => setTon(ton + 10)}
+                  onClick={() => handleFollowOnX()}
                   className="flex flex-col justify-center items-center"
                 >
                   <img
@@ -62,7 +84,7 @@ function App() {
               </li>
               <li>
                 <button
-                  onClick={() => setTon(ton + 10)}
+                  onClick={() => handleJoinGroup()}
                   className="flex flex-col justify-center items-center"
                 >
                   <img
