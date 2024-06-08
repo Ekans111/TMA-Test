@@ -79,7 +79,7 @@ function App() {
                   className="flex flex-col justify-center items-center"
                 >
                   <img
-                    src="/TNA-Test/image/Ethereum_3D.png"
+                    src="/TMA-Test/image/Ethereum_3D.png"
                     alt="Ethereum"
                     className="w-10 h-10"
                   />
